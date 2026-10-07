@@ -1,10 +1,10 @@
 # 囍事銀行電子喜帖 V2 — 網頁開發規格
 
-> 專案名稱：LOVE BANK｜永軒 × 昀蓁 終身聯名帳戶  
+> 專案名稱：HESU BANK｜永軒 × 昀蓁 終身聯名帳戶  
 > 婚禮日期：2026.12.12  
 > LINE 官方帳號：@634ydtgf  
 > 主要入口：LINE 官方帳號圖文選單  
-> 預計網站：`https://yehgaby.github.io/wedding20261212/`
+> 預計網站：`https://chaseyeh.github.io/wedding20261212/`
 
 ---
 
@@ -14,7 +14,7 @@
 
 核心概念：
 
-**LINE 是入口、網站是主體、LOVE BANK 是整體世界觀。**
+**LINE 是入口、網站是主體、HESU BANK 是整體世界觀。**
 
 賓客從 LINE 圖文選單點擊後，可直接進入網站不同區塊：
 
@@ -51,16 +51,17 @@
 
 ```text
 電子喜帖
-https://yehgaby.github.io/wedding20261212/
+https://chaseyeh.github.io/wedding20261212/
 
 出席回覆
-https://yehgaby.github.io/wedding20261212/#rsvp
+https://chaseyeh.github.io/wedding20261212/#rsvp
 
 交通指南
-https://yehgaby.github.io/wedding20261212/#location
+<!-- https://chaseyeh.github.io/wedding20261212/#location -->
+https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E6%96%B0%E6%BA%AB%E6%B3%89%E9%A3%AF%E5%BA%97%20%E5%8F%B0%E4%B8%AD%E5%B8%82%E7%83%8F%E6%97%A5%E5%8D%80%E6%BA%AB%E6%B3%89%E8%B7%AF2%E8%99%9F
 
 絕美婚紗
-https://yehgaby.github.io/wedding20261212/#gallery
+https://chaseyeh.github.io/wedding20261212/#gallery
 ```
 
 若之後部署網域改變，只需修改 Base URL。
@@ -89,7 +90,7 @@ LINE Official Account
 │   ├── 出席修改
 │   └── 婚禮 FAQ
 │
-└── LOVE BANK Wedding Website
+└── HESU BANK Wedding Website
     │
     ├── 01 Cover
     ├── 02 Account Overview
@@ -110,7 +111,7 @@ LINE Official Account
 
 網站需融合三種視覺語言：
 
-1. **LOVE BANK 銀行對帳單**
+1. **HESU BANK 銀行對帳單**
 2. **韓系婚禮插畫**
 3. **中式婚禮元素**
 
@@ -227,12 +228,12 @@ Inter
 
 ### 目的
 
-第一屏建立 LOVE BANK 世界觀。
+第一屏建立 HESU BANK 世界觀。
 
 ### 內容
 
 ```text
-LOVE BANK
+HESU BANK
 
 JOINT ACCOUNT
 STATEMENT
@@ -266,7 +267,7 @@ VIEW STATEMENT
 
 - 新人名字
 - 日期
-- LOVE BANK
+- HESU BANK
 - CTA
 
 ---
@@ -326,7 +327,7 @@ ACTIVE / FOREVER
 
 - 水平比例條
 - Statement row
-- 小型圓餅圖
+- 小型圓餅圖，中央標示「幸福資產現值 ∞」
 - 純文字百分比
 
 避免使用過度商業 Dashboard。
@@ -504,7 +505,7 @@ BRANCH INFORMATION
 內容：
 
 ```text
-LOVE BANK
+HESU BANK
 TAICHUNG BRANCH
 
 清新溫泉飯店
@@ -603,6 +604,10 @@ Radio Button。
 
 若選「無法出席」，人數自動變為 0。
 
+### 兒童椅數量
+
+選填，可選擇不需要或 1 至 10 張；確認回覆時會一併帶入訊息。
+
 ### 飲食
 
 ```text
@@ -645,6 +650,7 @@ JavaScript 根據表單內容產生 LINE 預填訊息。
 
 出席狀況：欣然出席
 出席人數：2 位
+兒童椅數量：1 張
 飲食需求：葷食 1、素食 1
 
 祝福你們新婚快樂！
@@ -794,7 +800,7 @@ window.print();
 
 ### 顯示
 
-- LOVE BANK
+- HESU BANK
 - 新人姓名
 - 日期
 - 婚宴資訊
@@ -821,7 +827,7 @@ Margin：
 
 列印結果必須看起來像：
 
-> LOVE BANK Wedding Account Statement
+> HESU BANK Wedding Account Statement
 
 而不是單純把手機網站印出來。
 
@@ -1072,7 +1078,7 @@ wedding20261212/
 </main>
 
 <footer>
-  LOVE BANK
+  HESU BANK
   永軒 × 昀蓁
   2026.12.12
 </footer>
@@ -1293,7 +1299,7 @@ Our Most Valuable Assets
 主版：
 
 ```text
-LOVE BANK
+HESU BANK
 
 永軒 × 昀蓁
 
@@ -1312,7 +1318,7 @@ FOREVER ACTIVE
 # 34. Footer 文案
 
 ```text
-LOVE BANK
+HESU BANK
 
 YUNG-HSUAN × YUN-CHEN
 2026.12.12
@@ -1334,7 +1340,7 @@ OF OUR MOST IMPORTANT TRANSACTION.
 - HTML Section
 - Anchor
 - Mobile Layout
-- LOVE BANK 視覺
+- HESU BANK 視覺
 
 ### Phase 2
 
@@ -1417,7 +1423,7 @@ V2 完成後必須符合以下條件。
 
 ```text
 請依照 v2_wedding_bank_statement_architecture.md，
-重新製作 LOVE BANK 婚禮電子喜帖 V2。
+重新製作 HESU BANK 婚禮電子喜帖 V2。
 
 技術限制：
 - Vanilla HTML
@@ -1442,7 +1448,7 @@ V2 完成後必須符合以下條件。
 米白、暖紅、深棕、鼠尾草綠。
 
 網站主題：
-LOVE BANK
+HESU BANK
 永軒 × 昀蓁
 Lifetime Joint Account
 2026.12.12
@@ -1474,7 +1480,7 @@ Lifetime Joint Account
 ↓
 電子喜帖
 ↓
-LOVE BANK Cover
+HESU BANK Cover
 ↓
 婚宴資訊
 ↓
@@ -1525,7 +1531,7 @@ V2 不只是：
 
 > 一份可以閱讀、互動、收藏，
 > 並透過 LINE 完成婚禮服務的
-> LOVE BANK 終身聯名帳戶對帳單。
+> HESU BANK 終身聯名帳戶對帳單。
 
 網站負責：
 
@@ -1547,7 +1553,7 @@ LINE 負責：
 
 兩者共同形成：
 
-# LOVE BANK Wedding Experience
+# HESU BANK Wedding Experience
 
 **永軒 × 昀蓁**  
 **2026.12.12**
