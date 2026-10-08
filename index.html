@@ -286,6 +286,8 @@
     .deadline strong { color: var(--color-red); font: 14px/1.4 var(--font-serif); }
     .rsvp-form-card { padding: clamp(23px, 4vw, 42px); border: 1px solid var(--color-border); background: var(--color-paper); box-shadow: 0 16px 42px rgb(79 48 35 / 5%); }
     .form-topline { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 17px; border-bottom: 1px dashed var(--color-border); }
+    .form-topline#guest-response { scroll-margin-top: calc(var(--header-height) + 18px); }
+    #rsvp { scroll-margin-top: calc(var(--header-height) + 18px); }
     .form-topline span { color: var(--color-muted); font: 9px/1.5 var(--font-display); letter-spacing: .12em; }
     .form-topline b { color: var(--color-red); font: 9px/1.5 var(--font-display); letter-spacing: .1em; }
     .field { display: grid; gap: 8px; margin-top: 22px; }
@@ -331,10 +333,46 @@
     .qr-card span { display: block; margin-top: 6px; color: var(--color-muted); font: 9px/1.4 var(--font-display); letter-spacing: .08em; }
     .qr-card strong { display: block; color: var(--color-brown); font: 11px/1.5 var(--font-serif); }
 
-    .print-section { padding-top: 0; }
-    .print-card { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 25px 28px; border-block: 1px solid var(--color-border); }
-    .print-card h2 { margin: 0; color: var(--color-brown); font: 500 18px/1.5 var(--font-serif); }
-    .print-card p { margin: 3px 0 0; color: var(--color-muted); font-size: 11px; }
+    .keepsake-section { padding-top: 0; }
+    .keepsake-card { display: grid; grid-template-columns: 1fr minmax(230px, 320px); align-items: center; gap: 35px; padding: clamp(24px, 5vw, 54px); border: 1px solid var(--color-border); background: var(--color-paper); box-shadow: var(--shadow-paper); }
+    .keepsake-copy .section-kicker { color: var(--color-red); }
+    .keepsake-copy h3 { margin: 10px 0; color: var(--color-brown); font: 500 clamp(23px, 3vw, 32px)/1.4 var(--font-serif); }
+    .keepsake-copy p { max-width: 520px; margin: 0; color: var(--color-muted); font-size: 13px; line-height: 1.9; }
+    .statement-link { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 18px; padding: 20px clamp(20px, 4vw, 36px); border: 1px solid var(--color-border); background: var(--color-paper); }
+    .statement-link-copy .section-kicker { color: var(--color-red); }
+    .statement-link-copy h3 { margin: 5px 0 2px; color: var(--color-brown); font: 500 18px/1.5 var(--font-serif); }
+    .statement-link-copy p { margin: 0; color: var(--color-muted); font-size: 11px; }
+    .envelope-button { display: grid; justify-items: center; gap: 13px; width: 100%; padding: 13px 10px 8px; color: var(--color-brown); border: 0; background: transparent; cursor: pointer; touch-action: manipulation; }
+    .envelope-art { position: relative; display: block; width: min(100%, 290px); aspect-ratio: 1.62 / 1; perspective: 700px; filter: drop-shadow(0 12px 12px rgb(79 48 35 / 13%)); }
+    .envelope-art::before { position: absolute; inset: 0; border: 1px solid rgb(98 56 43 / 14%); background: #e7d3c0; content: ""; }
+    .envelope-paper { position: absolute; z-index: 1; top: 9%; left: 9%; width: 82%; height: 79%; border: 1px solid #eaded2; background: #fffdf8; transition: transform .55s cubic-bezier(.2,.8,.25,1); }
+    .envelope-paper::before { position: absolute; top: 17%; left: 12%; width: 48%; height: 1px; background: var(--color-border); box-shadow: 0 12px 0 var(--color-line), 0 24px 0 var(--color-line); content: ""; }
+    .envelope-flap { position: absolute; z-index: 4; inset: 0 0 auto; height: 62%; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: center top; background: #f0d8c9; transition: transform .55s ease, z-index 0s .28s; backface-visibility: hidden; }
+    .envelope-fold { position: absolute; z-index: 3; inset: 0; clip-path: polygon(0 100%, 0 0, 50% 57%, 100% 0, 100% 100%); background: #ebd9c7; }
+    .envelope-seal { position: absolute; z-index: 5; top: 48%; left: 50%; display: grid; place-items: center; width: 43px; aspect-ratio: 1; transform: translate(-50%, -50%); color: #fff9f1; border: 1px solid rgb(255 249 241 / 70%); border-radius: 50%; background: var(--color-red); box-shadow: 0 2px 6px rgb(98 56 43 / 20%); font-size: 17px; transition: opacity .2s ease, transform .25s ease; }
+    .envelope-button:hover .envelope-art { transform: translateY(-3px); }
+    .envelope-art { transition: transform .2s ease; }
+    .envelope-button:active .envelope-art { transform: translateY(1px); }
+    .envelope-button.is-open .envelope-paper { transform: translateY(-34%); }
+    .envelope-button.is-open .envelope-flap { z-index: 1; transform: rotateX(180deg); }
+    .envelope-button.is-open .envelope-seal { opacity: 0; transform: translate(-50%, -50%) scale(.75); }
+    .envelope-cta { color: var(--color-red); font: 11px/1.4 var(--font-display); letter-spacing: .16em; }
+    .keepsake-dialog { width: min(980px, calc(100% - 24px)); max-width: 980px; height: min(88vh, 900px); max-height: calc(100% - 24px); padding: 0; overflow: hidden; border: 1px solid var(--color-border); background: var(--color-paper); box-shadow: 0 24px 100px rgb(0 0 0 / 28%); }
+    .keepsake-dialog::backdrop { background: rgb(42 28 23 / 80%); backdrop-filter: blur(4px); }
+    .keepsake-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+    .keepsake-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 15px 20px; border-bottom: 1px solid var(--color-line); }
+    .keepsake-dialog-head span { color: var(--color-red); font: 9px/1.4 var(--font-display); letter-spacing: .17em; }
+    .keepsake-dialog-head h2 { margin: 3px 0 0; color: var(--color-brown); font: 500 18px/1.4 var(--font-serif); }
+    .keepsake-size-note { margin: 4px 0 0; color: var(--color-muted); font-size: 11px; line-height: 1.5; }
+    .keepsake-close { display: grid; place-items: center; flex: 0 0 42px; width: 42px; height: 42px; color: var(--color-brown); border: 1px solid var(--color-border); border-radius: 50%; background: var(--color-paper); cursor: pointer; font-size: 22px; }
+    .keepsake-preview { min-height: 0; overflow: auto; padding: clamp(14px, 2.5vw, 28px); background: #f0e8df; overscroll-behavior: contain; }
+    .keepsake-page { width: min(100%, 600px); margin: 0 auto 20px; }
+    .keepsake-page img { display: block; width: 100%; height: auto; border: 1px solid var(--color-border); background: var(--color-paper); box-shadow: 0 10px 28px rgb(79 48 35 / 12%); }
+    .keepsake-page figcaption { padding-top: 8px; color: var(--color-muted); font: 9px/1.4 var(--font-display); letter-spacing: .14em; text-align: center; }
+    .keepsake-dialog-actions { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 20px; border-top: 1px solid var(--color-line); }
+    .keepsake-dialog-actions .button { flex: 0 0 auto; min-height: 48px; }
+    .keepsake-mobile-note { display: none; margin: 0; color: var(--color-muted); font-size: 11px; line-height: 1.65; }
+    .keepsake-open-preview { color: var(--color-brown-light); font-size: 11px; }
     .site-footer { padding: 40px 0 calc(38px + env(safe-area-inset-bottom)); color: rgb(255 253 248 / 78%); background: var(--color-brown); text-align: center; }
     .footer-brand { color: #efd5b3; font: 11px/1.4 var(--font-display); letter-spacing: .26em; }
     .footer-names { margin: 8px 0; color: white; font: 15px/1.5 var(--font-serif); letter-spacing: .08em; }
@@ -523,11 +561,20 @@
       .qr-card { width: 104px; padding: 8px; }
       .qr-card span { font-size: 7px; }
       .qr-card strong { font-size: 8px; }
-      .print-section { padding-top: 0; }
-      .print-card { align-items: start; padding: 19px 0; }
-      .print-card h2 { font-size: 15px; }
-      .print-card p { font-size: 9px; }
-      .print-card .button { min-height: 42px; padding: 9px 11px; font-size: 9px; white-space: nowrap; }
+      .keepsake-section { padding-top: 0; }
+      .keepsake-card { grid-template-columns: 1fr; gap: 19px; padding: 23px 18px; }
+      .keepsake-copy h3 { margin: 7px 0; font-size: 23px; }
+      .keepsake-copy p { font-size: 13px; }
+      .statement-link { align-items: stretch; flex-direction: column; gap: 14px; margin-top: 12px; padding: 18px; }
+      .statement-link .button { width: 100%; min-height: 46px; justify-content: center; }
+      .envelope-button { max-width: 340px; justify-self: center; }
+      .keepsake-dialog { width: calc(100% - 16px); height: min(86dvh, 760px); max-height: calc(100% - 16px); }
+      .keepsake-dialog-head { padding: 12px 13px; }
+      .keepsake-dialog-head h2 { font-size: 16px; }
+      .keepsake-dialog-actions { align-items: stretch; flex-direction: column; gap: 8px; padding: 12px 13px calc(12px + env(safe-area-inset-bottom)); }
+      .keepsake-dialog-actions .button { width: 100%; min-height: 48px; justify-content: center; }
+      .keepsake-mobile-note { display: block; }
+      .keepsake-open-preview { align-self: center; padding: 5px; font-size: 12px; }
       .site-footer { padding-bottom: calc(26px + env(safe-area-inset-bottom)); }
       .mobile-nav {
         position: fixed; z-index: 40; right: 0; bottom: 0; left: 0;
@@ -537,7 +584,7 @@
       }
       .mobile-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--color-brown-light); text-decoration: none; font-size: 9px; line-height: 1.3; }
       .mobile-nav a svg { width: 17px; height: 17px; }
-      .mobile-nav a:last-child { color: var(--color-red); }
+      .mobile-nav a:last-child { margin: 0 2px; color: white; border-radius: 4px; background: var(--color-red); box-shadow: 0 3px 10px rgb(201 80 67 / 20%); }
       .toast { right: 12px; bottom: calc(72px + env(safe-area-inset-bottom)); }
       .lightbox-close { right: 4px; transform: translate(0, -45%); }
       .lightbox-arrow { width: 38px; height: 38px; }
@@ -561,6 +608,12 @@
       .cover-subtitle { font-size: 12px; }
       .cover-message { font-size: 15px; line-height: 1.9; }
       .cover-status { font-size: 11px; }
+      .cover-actions { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 10px; }
+      .cover-actions .button, .cover-actions .cover-rsvp-link { width: 100%; min-height: 52px; justify-content: center; padding: 10px 8px; border-radius: 3px; font-size: 12px; }
+      .cover-actions .button { color: var(--color-brown); border-color: var(--color-border); background: var(--color-paper); }
+      .cover-actions .button:hover { color: white; border-color: var(--color-brown); background: var(--color-brown); }
+      .cover-actions .cover-rsvp-link { gap: 8px; color: white; border: 1px solid var(--color-red); border-radius: 3px; background: var(--color-red); box-shadow: 0 6px 16px rgb(201 80 67 / 20%); font-family: var(--font-serif); font-size: 13px; font-weight: 500; letter-spacing: .04em; }
+      .cover-actions .cover-rsvp-link:hover { color: white; border-color: var(--color-brown); background: var(--color-brown); transform: translateY(-2px); }
       .cover-actions .button { font-size: 13px; }
       .photo-caption { font-size: 12px; }
       .cover-stamp { font-size: 12px; }
@@ -631,7 +684,7 @@
     @media print {
       :root { --color-bg: #fff; --color-paper: #fff; }
       html, body { width: 100%; margin: 0; padding: 0; color: #33251f; background: white !important; font-size: 10pt; }
-      body::before, .site-header, .mobile-nav, .skip-link, .screen-only, .toast, dialog, .cover-actions, .summary-actions, .location-ctas, .rsvp-section, .print-section { display: none !important; }
+      body::before, .site-header, .mobile-nav, .skip-link, .screen-only, .toast, dialog, .cover-actions, .summary-actions, .location-ctas, .rsvp-section, .print-section, .keepsake-section { display: none !important; }
       main { overflow: visible; }
       .wrap { width: 100%; max-width: none; }
       .cover { display: block; min-height: 0; padding: 0 0 12mm; }
@@ -704,7 +757,7 @@
         <a href="#story">愛情紀錄</a>
         <a href="#gallery">珍藏婚紗</a>
         <a href="#location">交通地點</a>
-        <a href="../invitation">新中式囍帖</a>
+        <a href="#keepsake">新中式囍帖</a>
         <a class="nav-rsvp" href="#rsvp">出席回覆</a>
       </nav>
       <a class="header-contact" href="https://line.me/R/ti/p/%40634ydtgf" target="_blank" rel="noopener noreferrer">聯絡LINE小管家 ↗</a>
@@ -727,7 +780,7 @@
           <span class="cover-status">ACCOUNT STATUS　FOREVER ACTIVE</span>
           <div class="cover-actions">
             <a class="button" href="#wedding-info">VIEW STATEMENT <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="#rsvp">回覆出席 <span aria-hidden="true">↗</span></a>
+            <a class="text-link cover-rsvp-link" href="#rsvp">回覆出席 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <figure class="cover-visual" aria-label="永軒與昀蓁婚紗照">
@@ -756,13 +809,13 @@
 
         <div class="portfolio">
           <div class="portfolio-intro">
-            <span class="section-kicker">LOVE PORTFOLIO</span>
+            <span class="section-kicker">HESUBANK PORTFOLIO</span>
             <h3>我們最珍貴的資產</h3>
             <p>以日常點滴持續投入，<br>沒有贖回期限，<br>也不設上限。</p>
             <div class="infinity-balance"><strong>∞</strong><span>幸福資產現值</span></div>
           </div>
           <div class="allocation">
-            <div class="allocation-head"><h4>本期幸福資產配置</h4><span>LOVE ASSET ALLOCATION</span></div>
+            <div class="allocation-head"><h4>本期幸福資產配置</h4><span>HESUBANK ASSET ALLOCATION</span></div>
             <div class="allocation-visual">
               <div class="allocation-chart" aria-hidden="true"></div>
               <ul class="allocation-list">
@@ -841,7 +894,7 @@
               <img class="gallery-full-image" src="assets/images/tradional_holu.jpg" width="2134" height="3200" loading="lazy" decoding="async" alt="永軒與昀蓁身穿中式禮服、手持糖葫蘆的婚紗照">
               <span class="gallery-zoom" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 4.5 4.5M10.8 7.7v6.2M7.7 10.8h6.2"></path></svg></span>
             </button>
-            <figcaption class="gallery-caption"><strong>在一起的風景，都是珍藏。</strong><span>LOVE ASSET　No. 001</span></figcaption>
+            <figcaption class="gallery-caption"><strong>在一起的風景，都是珍藏。</strong><span>HESUBANK ASSET　No. 001</span></figcaption>
           </figure>
         </div>
       </div>
@@ -880,7 +933,7 @@
       <div class="wrap">
         <div class="section-head">
           <div class="section-title-group"><span class="section-number">06</span><h2 class="section-heading" id="rsvp-title">出席授權確認<span class="en">ATTENDANCE CONFIRMATION</span></h2></div>
-          <div id="rsvp" class="section-aside"><p>請讓我們為您預留<br>一份剛剛好的心意</p></div>
+          <div class="section-aside"><p>請讓我們為您預留<br>一份剛剛好的心意</p></div>
         </div>
         <div class="rsvp-layout">
           <div class="rsvp-aside">
@@ -888,11 +941,12 @@
             <h3>期待與您<br>分享這個日子。</h3>
             <p>請填寫下方表單確認出席狀況。送出後會先顯示回覆內容，確認無誤再開啟 LINE 傳送給我們。</p>
             <div class="deadline"><span>PLEASE REPLY BY</span><strong>2026 年 11 月 28 日</strong></div>
+
           </div>
           <div>
             <form class="rsvp-form-card" id="rsvp-form">
-              <div class="form-topline"><span>HESU BANK / GUEST RESPONSE</span></div>
-              <label class="field"><span>您的稱呼 <small>* 必填</small></span><input name="guestName" type="text" autocomplete="name" maxlength="40" placeholder="請輸入稱呼" required></label>
+              <div class="form-topline" id="guest-response"><span>HESU BANK / GUEST RESPONSE</span></div>
+              <label class="field" id="rsvp"><span>您的稱呼 <small>* 必填</small></span><input name="guestName" type="text" autocomplete="name" maxlength="40" placeholder="請輸入稱呼" required></label>
               <fieldset class="attendance-field"><legend>出席狀況 <small style="color:var(--color-red)">* 必填</small></legend><div class="attendance-options">
                 <label class="choice-card"><input type="radio" name="attendance" value="欣然出席" required><span>欣然出席❤️</span></label>
                 <label class="choice-card"><input type="radio" name="attendance" value="不克出席"><span>不克出席</span></label>
@@ -934,10 +988,31 @@
       </div>
     </section>
 
-    <section class="section print-section" id="print" aria-labelledby="print-title">
-      <div class="wrap print-card">
-        <div><h2 id="print-title">收藏這份喜帖</h2><p>將 HESU BANK 婚禮帳戶對帳單列印，或儲存為 PDF。</p></div>
-        <button class="button button-outline" type="button" data-action="print">PRINT / SAVE PDF <span aria-hidden="true">↗</span></button>
+    <section class="section keepsake-section" id="keepsake" aria-labelledby="keepsake-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-title-group"><span class="section-number">09</span><h2 class="section-heading" id="keepsake-title">收藏一份婚禮紀念<span class="en">HESUBANK DIGITAL INVITATION</span></h2></div>
+          <div class="section-aside"><p>點開信封，<br>帶走一份我們的紀念。</p></div>
+        </div>
+        <div class="keepsake-card">
+          <div class="keepsake-copy">
+            <span class="section-kicker">FOR YOU · WITH LOVE</span>
+            <h3>留一份喜歡的，帶回家。</h3>
+            <p>打開信封，先看看 HESU BANK 電子囍帖，也可以把固定版 PDF 收藏起來。</p>
+          </div>
+          <button class="envelope-button" type="button" data-keepsake-open aria-expanded="false" aria-controls="keepsake-dialog" aria-label="打開婚禮紀念信封">
+            <span class="envelope-art" aria-hidden="true"><span class="envelope-paper"></span><span class="envelope-flap"></span><span class="envelope-fold"></span><span class="envelope-seal">♥</span></span>
+            <span class="envelope-cta">點一下拆開</span>
+          </button>
+        </div>
+        <div class="statement-link">
+          <div class="statement-link-copy">
+            <span class="section-kicker">ANOTHER KEEPSAKE · STATEMENT</span>
+            <h3>HESU BANK 婚禮對帳單</h3>
+            <p>對帳單另外收藏，點開查看固定版 PDF。</p>
+          </div>
+          <a class="button button-outline" href="assets/HESUBANK-wedding-statement.pdf" target="_blank" rel="noopener noreferrer">開啟對帳單 PDF <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </section>
   </main>
@@ -957,7 +1032,7 @@
     <a href="#wedding-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="1"></rect><path d="M7.5 3v4m9-4v4M3.5 9h17m-12 4h2m3 0h2m-7 4h2"></path></svg><span>婚宴</span></a>
     <a href="#gallery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="8.5" cy="9" r="1.5"></circle><path d="m4 18 5-5 3 3 3-4 5 6"></path></svg><span>婚紗</span></a>
     <a href="#location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M19 9.5c0 5.8-7 11-7 11s-7-5.2-7-11a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="9" r="2.3"></circle></svg><span>交通</span></a>
-    <a href="#rsvp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 11.5a8 8 0 0 1-8 8 8.7 8.7 0 0 1-3.5-.7L4 20l1.3-4.1a8 8 0 1 1 15.2-4.4Z"></path><path d="m8.5 12.5 2.2 2 4.8-5"></path></svg><span>回覆</span></a>
+    <a href="#guest-response" aria-label="HESU BANK / GUEST RESPONSE"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 11.5a8 8 0 0 1-8 8 8.7 8.7 0 0 1-3.5-.7L4 20l1.3-4.1a8 8 0 1 1 15.2-4.4Z"></path><path d="m8.5 12.5 2.2 2 4.8-5"></path></svg><span>回覆</span></a>
   </nav>
 
   <dialog class="lightbox" id="gallery-lightbox" aria-label="婚紗照片放大檢視">
@@ -967,6 +1042,28 @@
       <img class="lightbox-image" id="lightbox-image" src="assets/images/tradional_holu.jpg" alt="">
       <button class="lightbox-arrow lightbox-next" type="button" data-lightbox-next aria-label="下一張照片" hidden>›</button>
       <div class="lightbox-caption"><span id="lightbox-caption">永軒 × 昀蓁</span><span id="lightbox-count">01 / 01</span></div>
+    </div>
+  </dialog>
+  <dialog class="keepsake-dialog" id="keepsake-dialog" aria-labelledby="keepsake-dialog-title">
+    <div class="keepsake-dialog-head">
+      <div><span>HESU BANK · DIGITAL INVITATION</span><h2 id="keepsake-dialog-title">HESU BANK 電子囍帖</h2></div>
+      <button class="keepsake-close" type="button" data-keepsake-close aria-label="關閉電子囍帖">×</button>
+    </div>
+    <div class="keepsake-preview">
+      <figure class="keepsake-page">
+        <img src="assets/invatation_zh/1.png" alt="HESU BANK 電子囍帖封面：永軒與昀蓁，2026 年 12 月 12 日" loading="eager" decoding="async">
+        <figcaption>01 / WEDDING INVITATION</figcaption>
+      </figure>
+      <figure class="keepsake-page">
+        <img src="assets/invatation_zh/2.png" alt="HESU BANK 電子囍帖內頁：婚宴時間、清新溫泉飯店、地址與 RSVP 資訊" loading="lazy" decoding="async">
+        <figcaption>02 / WEDDING DETAILS</figcaption>
+      </figure>
+    </div>
+    <div class="keepsake-dialog-actions">
+      <p class="keepsake-mobile-note">若手機未直接下載，請先開啟 PDF，再使用分享功能儲存到檔案。</p>
+      <a class="button" href="assets/HESUBANK-wedding-invitation.pdf" download="HESUBANK-wedding-invitation.pdf">下載固定版 PDF <span aria-hidden="true">↓</span></a>
+      <p class="keepsake-size-note">尺寸為台灣常用的 JIS B5</p>
+      <a class="keepsake-open-preview" href="assets/HESUBANK-wedding-invitation.pdf" target="_blank" rel="noopener noreferrer">在新分頁開啟囍帖 PDF <span aria-hidden="true">↗</span></a>
     </div>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -996,9 +1093,24 @@
         anchor.href = CONFIG.lineOfficialAccountUrl;
       });
 
-      document.querySelectorAll('[data-action="print"]').forEach((button) => {
-        button.addEventListener("click", () => window.print());
+      const keepsakeDialog = document.getElementById("keepsake-dialog");
+      const keepsakeTrigger = document.querySelector("[data-keepsake-open]");
+      let keepsakeOpenTimer;
+      keepsakeTrigger.addEventListener("click", () => {
+        keepsakeTrigger.classList.add("is-open");
+        keepsakeTrigger.setAttribute("aria-expanded", "true");
+        window.clearTimeout(keepsakeOpenTimer);
+        const openPreview = () => {
+          if (typeof keepsakeDialog.showModal === "function") keepsakeDialog.showModal();
+          else keepsakeDialog.setAttribute("open", "");
+          document.querySelector("[data-keepsake-close]").focus();
+        };
+        keepsakeOpenTimer = window.setTimeout(openPreview, keepsakeTrigger.classList.contains("was-open") || window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 560);
+        keepsakeTrigger.classList.add("was-open");
       });
+      document.querySelector("[data-keepsake-close]").addEventListener("click", () => keepsakeDialog.close());
+      keepsakeDialog.addEventListener("close", () => keepsakeTrigger.setAttribute("aria-expanded", "false"));
+      keepsakeDialog.addEventListener("click", (event) => { if (event.target === keepsakeDialog) keepsakeDialog.close(); });
 
       const calendarDetails = {
         title: "永軒與昀蓁婚宴",
@@ -1018,7 +1130,7 @@
           "CALSCALE:GREGORIAN",
           "METHOD:PUBLISH",
           "BEGIN:VEVENT",
-          "UID:love-bank-wedding-20261212@yehgaby.github.io",
+          "UID:HESUBANK-WEDDING-20261212@yehgaby.github.io",
           "DTSTAMP:" + stamp,
           "DTSTART:" + calendarDetails.start,
           "DTEND:" + calendarDetails.end,
@@ -1224,7 +1336,7 @@
         const image = trigger.querySelector("img");
         lightboxImage.src = image.currentSrc || image.src;
         lightboxImage.alt = image.alt;
-        lightboxCaption.textContent = "永軒 × 昀蓁 · LOVE ASSET No. " + String(activeImageIndex + 1).padStart(3, "0");
+        lightboxCaption.textContent = "永軒 × 昀蓁 · HESUBANK ASSET No. " + String(activeImageIndex + 1).padStart(3, "0");
         lightboxCount.textContent = String(activeImageIndex + 1).padStart(2, "0") + " / " + String(galleryItems.length).padStart(2, "0");
         const hasMultiple = galleryItems.length > 1;
         document.querySelector("[data-lightbox-prev]").hidden = !hasMultiple;
