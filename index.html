@@ -791,9 +791,9 @@
             <div class="summary-details">
               <div class="summary-item"><span class="label">TRANSACTION DATE</span><strong>2026.12.12　SAT.</strong><small>婚禮日期</small></div>
               <div class="summary-item"><span class="label">MERCHANT</span><strong><a href="https://www.freshfields.com.tw/" target="_blank" rel="noopener noreferrer">清新溫泉飯店</a></strong><small>freshfields</small></div>
-              <div class="summary-item"><span class="label">WEDDING BANQUET</span><strong>12:00</strong><small>婚宴開席</small></div>
-              <div class="summary-item"><span class="label">ADDRESS</span><strong>台中市烏日區<br>溫泉路 2 號</strong><small>No. 2, Wenquan Rd., Wuri Dist., Taichung City, Taiwan (R.O.C.)</small></div>
               <div class="summary-item"><span class="label">WELCOME</span><strong>11:30</strong><small>迎賓入場</small></div>
+              <div class="summary-item"><span class="label">ADDRESS</span><strong>台中市烏日區溫泉路 2 號</strong><small>No. 2, Wenquan Rd., Wuri Dist., Taichung City, Taiwan (R.O.C.)</small></div>
+              <div class="summary-item"><span class="label">WEDDING BANQUET</span><strong>12:00</strong><small>婚宴開席</small></div>
               <div class="summary-item"><span class="label">RSVP BY</span><strong>2026.11.28</strong><small>敬請於此日前回覆</small></div>
             </div>
             <div class="summary-actions">
@@ -876,11 +876,11 @@
       </div>
     </section>
 
-    <section class="section rsvp-section" id="rsvp" aria-labelledby="rsvp-title" tabindex="-1">
+    <section class="section rsvp-section" aria-labelledby="rsvp-title" tabindex="-1">
       <div class="wrap">
         <div class="section-head">
           <div class="section-title-group"><span class="section-number">06</span><h2 class="section-heading" id="rsvp-title">出席授權確認<span class="en">ATTENDANCE CONFIRMATION</span></h2></div>
-          <div class="section-aside"><p>請讓我們為您預留<br>一份剛剛好的心意。</p></div>
+          <div id="rsvp" class="section-aside"><p>請讓我們為您預留<br>一份剛剛好的心意</p></div>
         </div>
         <div class="rsvp-layout">
           <div class="rsvp-aside">
@@ -891,18 +891,18 @@
           </div>
           <div>
             <form class="rsvp-form-card" id="rsvp-form">
-              <div class="form-topline"><span>HESU BANK / GUEST RESPONSE</span><b>SECURE · NO DATA SAVED</b></div>
+              <div class="form-topline"><span>HESU BANK / GUEST RESPONSE</span></div>
               <label class="field"><span>您的稱呼 <small>* 必填</small></span><input name="guestName" type="text" autocomplete="name" maxlength="40" placeholder="請輸入稱呼" required></label>
               <fieldset class="attendance-field"><legend>出席狀況 <small style="color:var(--color-red)">* 必填</small></legend><div class="attendance-options">
                 <label class="choice-card"><input type="radio" name="attendance" value="欣然出席" required><span>欣然出席❤️</span></label>
                 <label class="choice-card"><input type="radio" name="attendance" value="不克出席"><span>不克出席</span></label>
               </div></fieldset>
               <div class="field"><span id="guest-count-label">出席人數</span><div class="count-control" role="group" aria-labelledby="guest-count-label"><button type="button" data-count="down" aria-label="減少一位出席人數">−</button><output id="guest-count" aria-live="polite">1</output><button type="button" data-count="up" aria-label="增加一位出席人數">＋</button></div><p class="count-help" id="count-help">最多可填寫 10 位。</p></div>
-              <label class="field"><span>兒童椅數量 <small>選填</small></span><select name="childChairCount"><option value="">請選擇（若有需求）</option><option value="0">不需要</option><option value="1">1 張</option><option value="2">2 張</option><option value="3">3 張</option><option value="4">4 張</option><option value="5">5 張</option><option value="6">6 張</option><option value="7">7 張</option><option value="8">8 張</option><option value="9">9 張</option><option value="10">10 張</option></select></label>
+              <label class="field"><span>兒童椅數量 <small>選填</small></span><p class="count-help" id="child-chair-help">請先選擇出席狀況；兒童椅數量不可超過出席人數。</p><select name="childChairCount" id="child-chair-count" aria-describedby="child-chair-help"><option value="">請選擇（若有需求）</option><option value="0">不需要</option><option value="1">1 張</option><option value="2">2 張</option><option value="3">3 張</option><option value="4">4 張</option><option value="5">5 張</option><option value="6">6 張</option><option value="7">7 張</option><option value="8">8 張</option><option value="9">9 張</option><option value="10">10 張</option></select></label>
               <label class="field"><span>飲食需求 <small>選填，預設葷食</small></span><select name="diet"><option value="">請選擇（若有需求）</option><option value="葷食">葷食</option><option value="素食">素食</option><option value="其他">其他需求</option></select></label>
               <label class="field"><span>想告訴新人的話 <small>選填</small></span><textarea name="note" maxlength="300" placeholder="留下祝福或備註"></textarea></label>
               <button class="button rsvp-submit" type="submit">確認回覆內容 <span aria-hidden="true">↓</span></button>
-              <p class="privacy-note"><span aria-hidden="true">ⓘ</span><span>本網站不會儲存您的回覆。確認內容後，點選下方按鈕開啟 LINE，再按下傳送即可。</span></p>
+              <p class="privacy-note"><span aria-hidden="true">ⓘ</span><span>本網站不會儲存您的回覆。確認內容後，點選下方按鈕開啟 LINE，再按下傳送即可。<br><b>SECURE · NO DATA SAVED</b></span></p>
             </form>
             <section class="reply-panel" id="reply-panel" aria-labelledby="reply-title" tabindex="-1" hidden>
               <h3 id="reply-title">送出前，請確認您的回覆內容</h3>
@@ -1068,6 +1068,8 @@
       const guestCount = document.getElementById("guest-count");
       const countButtons = document.querySelectorAll("[data-count]");
       const countHelp = document.getElementById("count-help");
+      const childChairSelect = document.getElementById("child-chair-count");
+      const childChairHelp = document.getElementById("child-chair-help");
       const replyPanel = document.getElementById("reply-panel");
       const replyPreview = document.getElementById("reply-preview");
       let currentReply = "";
@@ -1085,17 +1087,50 @@
         return form.querySelector('input[name="attendance"]:checked')?.value || "";
       }
 
+      function updateChildChairOptions() {
+        const attending = selectedAttendance() === "欣然出席";
+        const count = attending ? Number(guestCount.value || 1) : 0;
+        const previousSelection = childChairSelect.value;
+        const selectionExceedsLimit = attending && previousSelection !== "" && Number(previousSelection) > count;
+        const attendanceDeclinedWithSelection = !attending && previousSelection !== "";
+
+        childChairSelect.disabled = !attending;
+        Array.from(childChairSelect.options).forEach((option) => {
+          if (option.value === "") {
+            option.disabled = false;
+          } else {
+            option.disabled = !attending || Number(option.value) > count;
+          }
+        });
+
+        if (selectionExceedsLimit || attendanceDeclinedWithSelection) {
+          childChairSelect.value = "";
+          childChairHelp.textContent = selectionExceedsLimit
+            ? `出席人數已調整，兒童椅數量已清除，最多可選 ${count} 張。`
+            : "已選擇不克出席，兒童椅需求已清除。";
+        } else if (attending) {
+          childChairHelp.textContent = `最多可選 ${count} 張，不能超過出席人數。`;
+        } else if (selectedAttendance() === "不克出席") {
+          childChairHelp.textContent = "不克出席時無法預約兒童椅。";
+        } else {
+          childChairHelp.textContent = "請先選擇出席狀況；兒童椅數量不可超過出席人數。";
+        }
+      }
+
       function updateGuestCount() {
         const declined = selectedAttendance() === "不克出席";
         const count = declined ? 0 : Number(guestCount.value || 1);
         guestCount.textContent = String(count);
         countButtons.forEach((button) => { button.disabled = declined; });
         countHelp.textContent = declined ? "已選擇不克出席，人數將以 0 位回覆。" : "最多可填寫 10 位。";
+        updateChildChairOptions();
       }
 
       form.querySelectorAll('input[name="attendance"]').forEach((radio) => {
         radio.addEventListener("change", updateGuestCount);
       });
+      childChairSelect.addEventListener("change", updateChildChairOptions);
+      updateChildChairOptions();
 
       countButtons.forEach((button) => {
         button.addEventListener("click", () => {
@@ -1117,11 +1152,16 @@
         const note = String(values.get("note") || "").trim();
         const attending = attendance === "欣然出席";
         const count = attending ? Number(guestCount.value || 1) : 0;
+        if (attending && childChairCount !== "" && Number(childChairCount) > count) {
+          childChairHelp.textContent = `兒童椅數量不可超過出席人數（${count} 位），請重新選擇。`;
+          childChairSelect.focus();
+          return null;
+        }
         const parts = [
           "【永軒 × 昀蓁｜2026.12.12 婚宴出席回覆】",
           "",
           "您好，我是「" + name + "」。",
-          "出席狀況：" + attendance,
+          "出席狀況：" + attendance + (attending ? "❤️" : ""),
           "出席人數：" + count + " 位"
         ];
         if (childChairCount) parts.push("兒童椅數量：" + (childChairCount === "0" ? "不需要" : childChairCount + " 張"));
